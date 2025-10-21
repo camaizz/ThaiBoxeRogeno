@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thai Boxe Rogeno - Muay Thai a Bosisio Parini</title>  
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Grenze:wght@300;400;500;600;700&family=Bebas+Neue&display=swap" rel="stylesheet">
+    <style> /* sistemazione stile del sito (colori e misure) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Grenze', serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            color: #1a1a1a;
+            overflow-x: hidden;
+            max-width: 100vw; /* Aggiunto per ottimizzazione mobile */ 
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            max-width: 100%; /* Aggiunto per prevenire overflow (ottimizzazione per mobile) */
+        }   
+
+        header {
+            background: white;
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 3px solid #dc143c;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-logo-img {
+            height: 40px;
+            width: auto;
+            margin-right: 10px;
+            vertical-align: middle;
+        }
+
+        .logo-text {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #1e3a8a;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #1a1a1a;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 600;
+            font-size: 1.25rem;
+        }
+
+        .nav-links a:hover {
+            color: #dc143c;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.03) 0%, rgba(255, 255, 255, 0.8) 50%, rgba(30, 58, 138, 0.03) 100%), url('trasparente.png');
+            background-size: 95%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .logo-container {
+            width: 350px;
+            height: 350px;
+            margin: 0 auto 3rem;
+            animation: float 3s ease-in-out infinite;
+            background: white;
+            border-radius: 50%;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+            border: 5px solid #1e3a8a;
+        }
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        h1 {
+            font-size: 5rem;
+            margin-bottom: 1rem;
+            color: #1e3a8a;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            text-shadow: 3px 3px 6px rgba(220, 20, 60, 0.2);
+            font-family: 'Bebas Neue', sans-serif;
+            font-weight: 400;
+        }
+
+        .tagline {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            color: #555;
+            font-weight: 500;
+        }
+
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            color: #1e3a8a;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-weight: 400;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .info-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            border: 3px solid #1e3a8a;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            border-color: #dc143c;
+            box-shadow: 0 10px 30px rgba(220, 20, 60, 0.2);
+        }
+
+        .info-card h3 {
+            color: #dc143c;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+
+        .info-card p {
+            line-height: 1.8;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .video-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border: 3px solid #1e3a8a;
+            margin: 3rem 0;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #e0e0e0;
+            border: 2px solid #dc143c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+        }
+
+        .video-placeholder {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #555;
+            font-size: 1.2rem;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .alert-banner {
+            background: linear-gradient(135deg, #f2f8fc 0%, #c8e2f3 100%);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border-left: 5px solid #dc143c;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .alert-banner h3 {
+            color: #dc143c;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .alert-banner p {
+            color: #444;
+            font-size: 1.25rem;
+            line-height: 1.7;
+            margin-bottom: 0.8rem;
+        }
+
+        .alert-banner a {
+            color: #1e3a8a;
+            font-weight: 600;
+            text-decoration: none;
+            border-bottom: 2px solid #1e3a8a;
+            transition: all 0.3s;
+        }
+
+        .alert-banner a:hover {
+            color: #dc143c;
+            border-bottom-color: #dc143c;
+        }
+
+        .schedule-calendar {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .day-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            border: 3px solid #1e3a8a;
+            transition: all 0.3s;
+        }
+
+        .day-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(220, 20, 60, 0.2);
+            border-color: #dc143c;
+        }
+
+        .day-header {
+            background: linear-gradient(135deg, #ef3340 100%, #1e3a8a 100%);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .day-name {
+            font-size: 2rem;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .day-body {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .time-display {
+            font-size: 2.5rem;
+            color: #1e3a8a;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+        }
+
+        .duration {
+            color: #666;
+            font-size: 1.2rem;
+        }
+
+        .location-badge {
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.1) 0%, rgba(30, 58, 138, 0.1) 100%);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            border-left: 4px solid #dc143c;
+        }
+
+        .location-badge p {
+            color: #444;
+            font-size: 1.15rem;
+            font-weight: 500;
+        }
+
+        .pricing-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            margin: 3rem 0;
+            border: 3px solid #1e3a8a;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .pricing-section h3 {
+            color: #1e3a8a;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-family: 'Bebas Neue', sans-serif;
+            letter-spacing: 2px;
+        }
+
+        .pricing-section p {
+            font-size: 1.2rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .pricing-section .contact-link {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, #ef3340 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+        }
+
+        .pricing-section .contact-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(220, 20, 60, 0.4);
+        }
+
+        .contact-section {
+            background: white;
+            padding: 3rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border: 3px solid #1e3a8a;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.05) 0%, rgba(30, 58, 138, 0.05) 100%);
+            border-radius: 10px;
+            transition: all 0.3s;
+            border-left: 4px solid #1e3a8a;
+        }
+
+        .contact-item:hover {
+            background: rgba(220, 20, 60, 0.1);
+            transform: translateX(5px);
+            border-left-color: #dc143c;
+        }
+
+        .contact-item a {
+            color: #1a1a1a;
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            color: #dc143c;
+        }
+
+        .map-container {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            height: 400px;
+            border: 3px solid #1e3a8a;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .trial-notice {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #00247d 100%);
+            border-radius: 15px;
+            margin-top: 2rem;
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 600;
+            box-shadow: 0 5px 20px rgba(220, 20, 60, 0.3);
+        }
+
+    .gallery-section {
+    margin: 4rem auto;
+    text-align: center;
+    max-width: 1200px; 
+    padding: 0 2rem;
+}
+
+.gallery-section h2 {
+    text-align: center;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    justify-items: center; 
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.gallery-banner {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 3px solid #1e3a8a;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    height: 300px;
+    width: 100%;
+    max-width: 350px; 
+}
+
+.gallery-banner:hover {
+    transform: translateY(-8px);
+    border-color: #dc143c;
+    box-shadow: 0 10px 30px rgba(220, 20, 60, 0.2);
+}
+
+.gallery-banner img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /*@media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+                white-space: normal;
+                letter-spacing: 2px;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .logo-container {
+                width: 250px;
+                height: 250px;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+                white-space: normal;
+            }
+
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .map-container {
+                height: 300px;
+            }
+
+            .schedule-calendar {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }*/
+
+        /* commentata la versione non ottimizzata per mobile, sotto versione modificata*/ 
+        
+
+        @media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem; /* Ridotto da 3rem */
+        white-space: normal;
+        letter-spacing: 2px;
+        word-wrap: break-word;
+    }
+
+    h2 {
+        font-size: 1.8rem; /* Ridotto da 2rem */
+        word-wrap: break-word;
+    }
+
+    .logo-container {
+        width: 200px; /* Ridotto da 250px */
+        height: 200px;
+    }
+
+    .tagline {
+        font-size: 1rem; /* Ridotto da 1.2rem */
+        white-space: normal;
+        padding: 0 1rem;
+    }
+
+    .nav-links {
+        gap: 0.5rem; /* Ridotto da 1rem */
+        font-size: 0.75rem; /* Ridotto da 0.9rem */
+        flex-wrap: wrap;
+    }
+
+    .logo-text {
+        font-size: 1.5rem; /* Ridotto da 2.2rem */
+        letter-spacing: 1px;
+    }
+
+    header {
+        padding: 0.5rem 1rem;
+    }
+
+    nav {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .map-container {
+        height: 300px;
+        width: 100%;
+    }
+
+    .schedule-calendar {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        padding: 3rem 1rem; /* Ridotto padding laterale */
+    }
+
+    .contact-item a {
+        font-size: 1rem; /* Ridotto da 1.25rem */
+        word-break: break-word;
+    }
+
+    .hero {
+        padding: 1rem;
+        background-size: 80%; /* Ridotto sfondo */
+    }
+}
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo-text">
+                <img src="www.png" alt="Logo" class="nav-logo-img">
+                Thai Boxe Rogeno <!-- indice e logo in alto -->
+            </div> 
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#info">Info</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="#orari">Orari</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="logo-container">
+                <img id="main-logo" src="logo.png" alt="Thai Boxe Rogeno Logo">
+            </div>
+            <h1>Thai Boxe Rogeno</h1> <!-- titolo -->
+            <p class="tagline">L'Arte Marziale Thailandese a Bosisio Parini</p> <!-- sottotitolo -->
+        </div>
+    </section>
+
+    <section id="info">
+        <h2>Muay Thai a Bosisio Parini</h2> <!-- deczrizione thai boxe rogeno -->
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>🥊 Dal 1996</h3>
+                <p>Da oltre 25 anni portiamo avanti con passione i corsi di Muay Thai presso la palestra comunale di Bosisio Parini, insegnando la storica arte marziale thailandese.</p>
+            </div>
+            <div class="info-card">
+                <h3>👥 Per Tutti</h3>
+                <p>Il corso è amatoriale e aperto a uomini e donne di tutte le età. Non servono esperienze pregresse, solo la voglia di mettersi in gioco!</p>
+            </div>
+            <div class="info-card">
+                <h3>💪 Crescita Personale</h3>
+                <p>Oltre alla tecnica, imparerai disciplina, rispetto e autocontrollo. La Muay Thai è un percorso di crescita fisica e mentale.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="video">
+        <div class="video-section">
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/OY36lJ-bI40?si=MOI-SrS_ToqZgMP-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div> <!-- video di youtube-->
+            <div class="alert-banner">
+                <h3>⚠️ Informazioni importanti sul video ⚠️</h3>
+                <p>Il video è stato registrato nel 2019 e alcune informazioni non sono più aggiornate.</p>
+                <p><strong>La sede e gli orari dei corsi sono cambiati.</strong></p>
+                <p>Per informazioni aggiornate su luogo e orari, consulta la sezione <a href="#orari">Orari</a> di questo sito.</p>
+                <p>Per qualsiasi dubbio o domanda, non esitare a <a href="#contatti">contattarci</a> utilizzando i recapiti nella sezione contatti.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-section"> <!-- galleria immagini -->
+        <h2>Momenti in palestra</h2>
+        <div class="gallery-grid">
+            <div class="gallery-banner">
+                <img src="bende.jpg" alt="Allenamento Muay Thai">                
+            </div>
+            <div class="gallery-banner">
+                <img src="leone.jpg" alt="Allenamento Muay Thai">               
+            </div>
+            <div class="gallery-banner">
+                <img src="inchino.jpg" alt="Allenamento Muay Thai">
+                            </div>
+        </div>
+    </section>
+
+    <section id="orari"> <!-- sezione orari -->
+        <h2>Orari dei Corsi</h2>
+        <div class="schedule-calendar">
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-name">MARTEDÌ</div> <!-- giorno 1 -->
+                </div>
+                <div class="day-body">
+                    <div class="time-display">20:00 - 21:30</div> <!-- orario 1 -->
+                    <div class="duration">Durata: 1 ora e 30 minuti</div> <!-- durata 1 -->
+                </div>
+            </div>
+            <div class="day-card">
+                <div class="day-header">
+                    <div class="day-name">VENERDÌ</div> <!-- giorno 2 -->
+                </div>
+                <div class="day-body">
+                    <div class="time-display">20:00 - 21:00</div> <!-- orario 2 -->
+                    <div class="duration">Durata: 1 ora</div> <!-- durata 2 -->
+                </div>
+            </div>
+        </div>
+        <div class="trial-notice">
+            ✨ Prima lezione di prova gratuita! ✨
+        </div>
+    </section>
+
+    <!-- sezione dei prezzi
+    <section id="prezzi">
+        <div class="pricing-section">
+            <p>Per informazioni dettagliate sui costi dei corsi e sulle modalità di pagamento,</p>
+            <p>ti invitiamo a contattarci direttamente.</p>
+            <a href="#contatti" class="contact-link">Contattaci per i Prezzi</a>
+        </div>
+    </section>
+    -->
+    
+
+    <section id="contatti"> <!-- sezione contatti -->
+        <h2>Contatti</h2>
+        <div class="contact-section">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span style="font-size: 1.5rem;">📞</span>                        
+                        <h3>Telefono: </h3>                        
+                        <a href="tel:+393205534171">+39 3205534171</a> <!-- numero di telefono -->
+                    </div>
+                    <div class="contact-item">
+                        <span style="font-size: 1.5rem;">✉️</span>                         
+                        <h3>Email: </h3>                        
+                        <a href="mailto:rogenothaiboxe@gmail.com">rogenothaiboxe@gmail.com</a> <!-- email -->
+                    </div>
+                    <div class="contact-item">
+                        <span style="font-size: 1.5rem;">📍</span>
+                        <h3>Indirizzo: </h3>
+                        <span>Via Andrea Appiani, 10<br>23842 Bosisio Parini LC</span> <!-- indirizzo -->
+                    </div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1684.3628706322738!2d9.285924198493486!3d45.80265204977688!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4786a0d2783d987d%3A0xc2201c51b4a0b866!2sThai%20Boxe!5e1!3m2!1sit!2sit!4v1760566703378!5m2!1sit!2sit" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <p> © 2025 Thai Boxe Rogeno | Site developed and designed by Camilla Rizzi </p> <!-- copyright, se ci fossero altre persone che modificheranno il codice, per qualsiasi info: camillarizzi2003@gmail.com -->
+</body>
+</html>
